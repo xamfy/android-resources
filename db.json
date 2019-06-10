@@ -1,0 +1,49 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "name": "Havasu Falls",
+      "url": "https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Trondheim",
+      "url": "https://i.redd.it/tpsnoz5bzo501.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Portugal",
+      "url": "https://i.redd.it/qn7f9oqu7o501.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Rocky Mountain National Park",
+      "url": "https://i.redd.it/j6myfqglup501.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Mahahual",
+      "url": "https://i.redd.it/0h2gm1ix6p501.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Frozen Lake",
+      "url": "https://i.redd.it/k98uzl68eh501.jpg"
+    },
+    {
+      "id": 7,
+      "name": "White Sands Desert",
+      "url": "https://i.redd.it/glin0nwndo501.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Australia",
+      "url": "https://i.redd.it/obx4zydshg601.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Washington",
+      "url": "https://i.imgur.com/ZcLLrkY.jpg"
+    }
+  ] 
+}
