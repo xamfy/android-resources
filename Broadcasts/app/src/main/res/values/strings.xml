@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Broadcasts</string>
+    <string name="custom_broadcast_message">Custom Broadcast Received</string>
+    <string name="headset_plugged_message">Headset Plugged</string>
+    <string name="power_disconnected_message">Power disconnected</string>
+    <string name="power_connected_message">Power connected</string>
+    <string name="unknow_intent_message">unknown intent action</string>
+    <string name="headset_unplugged_message">Headset unplugged</string>
+</resources>

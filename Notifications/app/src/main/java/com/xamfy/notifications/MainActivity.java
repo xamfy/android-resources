@@ -3,7 +3,10 @@ package com.xamfy.notifications;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -31,6 +34,42 @@ public class MainActivity extends AppCompatActivity {
 
     // associate a notification with ID to update or cancel in future
     private static final int NOTIFICATION_ID = 0;
+
+    private static final String ACTION_UPDATE_NOTIFICATION =
+            "com.xamfy.notifications.ACTION_UPDATE_NOTIFICATION";
+
+    private static final String ACTION_DISMISS_NOTIFICATION =
+            "com.xamfy.notifications.ACTION_DISMISS_NOTIFICATION";
+
+
+    private NotificationReceiver mReceiver = new NotificationReceiver();
+    private DismissalReceiver mDismissalReceiver = new DismissalReceiver();
+
+    // broadcast receiver
+    public class NotificationReceiver extends BroadcastReceiver {
+
+        public  NotificationReceiver() {
+
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateNotification();
+        }
+    }
+
+    public class DismissalReceiver extends BroadcastReceiver {
+
+        public  DismissalReceiver() {
+
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setNotificationButtonState(true, false, false);
+        }
+    }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -87,6 +126,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setNotificationButtonState(true, false, false);
+
+        // register
+        registerReceiver(mReceiver, new IntentFilter(ACTION_UPDATE_NOTIFICATION));
+        registerReceiver(mDismissalReceiver, new IntentFilter(ACTION_DISMISS_NOTIFICATION));
+    }
+
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(mReceiver);
+        super.onDestroy();
     }
 
     public void createNotificationChannel() {
@@ -109,6 +158,11 @@ public class MainActivity extends AppCompatActivity {
                 NOTIFICATION_ID, notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
+        Intent dismissIntent = new Intent(ACTION_DISMISS_NOTIFICATION);
+        PendingIntent deleteIntent = PendingIntent.getBroadcast(
+                this, NOTIFICATION_ID, dismissIntent, PendingIntent.FLAG_ONE_SHOT
+        );
+
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this,
                 PRIMARY_CHANNEL_ID)
                 .setContentTitle("You've been notified!")
@@ -117,13 +171,20 @@ public class MainActivity extends AppCompatActivity {
                 .setContentIntent(notificationPendingIntent)
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setDefaults(NotificationCompat.DEFAULT_ALL);
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setDeleteIntent(deleteIntent);
 
         return notifyBuilder;
     }
 
     public void sendNotification() {
+        Intent updateIntent = new Intent(ACTION_UPDATE_NOTIFICATION);
+        PendingIntent updatePendingIntent = PendingIntent.getBroadcast(
+                this, NOTIFICATION_ID, updateIntent, PendingIntent.FLAG_ONE_SHOT
+        );
+
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+        notifyBuilder.addAction(R.drawable.ic_update, "Update Notification", updatePendingIntent);
         mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
         setNotificationButtonState(false, true, true);
     }
