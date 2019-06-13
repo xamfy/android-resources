@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WhoWroteItLoader</string>
+
+    <!-- Strings in activity_main view -->
+    <string name="instructions">Enter a book name to find out who wrote the book. </string>
+    <string name="button_text">Search Books</string>
+    <string name="input_hint">Book Title</string>
+
+    <!-- User messages for in-process queries and error results. -->
+    <string name="loading">Loading…</string>
+    <string name="no_results">"No Results Found"</string>
+    <string name="no_search_term">Please enter a search term</string>
+    <string name="no_network">Please check your network connection and try again.</string>
+</resources>
