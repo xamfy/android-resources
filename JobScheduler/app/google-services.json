@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "676751967852",
+    "firebase_url": "https://jobscheduler-d728a.firebaseio.com",
+    "project_id": "jobscheduler-d728a",
+    "storage_bucket": "jobscheduler-d728a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676751967852:android:156c9db07610d11c",
+        "android_client_info": {
+          "package_name": "com.xamfy.jobscheduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676751967852-qd3ve65rg5ih05a0bpqf2li8hvm0cq98.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xamfy.jobscheduler",
+            "certificate_hash": "61e3f71065ffd78daab4e8f91c3cf636c9844594"
+          }
+        },
+        {
+          "client_id": "676751967852-52osbicq647k7lj3067f2qfkuhtqmk89.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAldSYU39UDZewK-uoTVFZJ_DLNbJX_N0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676751967852-52osbicq647k7lj3067f2qfkuhtqmk89.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
